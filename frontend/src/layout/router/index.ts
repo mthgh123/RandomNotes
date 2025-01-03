@@ -1,12 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import TodoItems from '../../components/TodoItems.vue'
-import Login from '../../components/Login.vue'
+import Login from '../../components/Login.vue';
+import Layout from '../Layout.vue';
+
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: TodoItems
+    name: 'layout',
+    component: Layout,
+    children: [
+      {
+        path: 'toDoItem',
+        name: 'toDoItem',
+        component: TodoItems,
+      }
+    ]
   },
   {
     path: '/login',
